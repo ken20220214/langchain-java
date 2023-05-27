@@ -24,12 +24,12 @@ public abstract class Chain {
 
     private Set<String> outputKeys = null;
 
-    private boolean validateInputs(Map<String, String> inputs) {
+    private boolean validateInputs(Map<String, Object> inputs) {
         Sets.SetView<String> diff = Sets.difference(inputKeys, inputs.keySet());
         return diff.size() == 0;
     }
 
-    private boolean validateOutputs(Map<String, String> outputs) {
+    private boolean validateOutputs(Map<String, Object> outputs) {
         Sets.SetView<String> diff = Sets.difference(outputKeys, outputs.keySet());
         return diff.size() == 0;
     }
@@ -40,13 +40,13 @@ public abstract class Chain {
      * @param inputs
      * @return
      */
-    protected abstract Map<String, String> _call(Map<String, String> inputs);
+    protected abstract Map<String, Object> _call(Map<String, Object> inputs);
 
-    public Map<String, String> call(Map<String, String> inputs, boolean returnOnlyOutputs) throws IOException {
+    public Map<String, Object> call(Map<String, Object> inputs, boolean returnOnlyOutputs) throws IOException {
 
-        Map<String, String> tmp = this.prepInputs(inputs);
+        Map<String, Object> tmp = this.prepInputs(inputs);
         try {
-            Map<String, String> outputs = this._call(tmp);
+            Map<String, Object> outputs = this._call(tmp);
             return this.prepOutputs(inputs, outputs, returnOnlyOutputs);
         } catch (Exception e) {
             LOG.warn("error execute chain {}", chainType, e);
@@ -55,11 +55,11 @@ public abstract class Chain {
 
     }
 
-    private Map<String, String> prepInputs(Map<String, String> inputs) throws IOException {
+    private Map<String, Object> prepInputs(Map<String, Object> inputs) throws IOException {
 
-        Map<String, String> ret = new HashMap<>(inputs);
+        Map<String, Object> ret = new HashMap<>(inputs);
         if (this.memory != null) {
-            Map<String, String> externalContext = this.memory.loadMemoryVariables(inputs);
+            Map<String, Object> externalContext = this.memory.loadMemoryVariables(inputs);
             ret.putAll(externalContext);
         }
         if (!this.validateInputs(ret)) {
@@ -71,7 +71,7 @@ public abstract class Chain {
         return ret;
     }
 
-    private Map<String, String> prepOutputs(Map<String, String> inputs, Map<String, String> outputs,
+    private Map<String, Object> prepOutputs(Map<String, Object> inputs, Map<String, Object> outputs,
                                             boolean returnOnlyOutputs) throws IOException {
 
         if (this.validateOutputs(outputs)) {
@@ -88,7 +88,7 @@ public abstract class Chain {
         if (returnOnlyOutputs) {
             return outputs;
         } else {
-            Map<String, String> ret = new HashMap<>(outputs);
+            Map<String, Object> ret = new HashMap<>(outputs);
             ret.putAll(inputs);
             return ret;
         }

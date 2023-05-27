@@ -7,9 +7,9 @@ public abstract class BaseMemory {
 
     private List<String> memoryVariables;
 
-    public abstract Map<String, String> loadMemoryVariables(Map<String, String> inputs);
+    public abstract Map<String, Object> loadMemoryVariables(Map<String, Object> inputs);
 
-    public abstract void saveContext(Map<String, String> inputs, Map<String, String> outputs);
+    public abstract void saveContext(Map<String, Object> inputs, Map<String, Object> outputs);
 
     public abstract void clear();
 

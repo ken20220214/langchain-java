@@ -13,6 +13,14 @@ public class BaseChatPromptTemplate extends BasePromptTemplate {
 
     private List<BaseMessageProvider> providers = null;
 
+    public List<BaseMessageProvider> getProviders() {
+        return providers;
+    }
+
+    public void setProviders(List<BaseMessageProvider> providers) {
+        this.providers = providers;
+    }
+
     @Override
     public PromptValue innerFormatPrompt(Map<String, Object> kwargs) {
 
@@ -26,7 +34,7 @@ public class BaseChatPromptTemplate extends BasePromptTemplate {
     }
 
     @Override
-    public String format(Map<String, String> kwargs) {
+    public String format(Map<String, Object> kwargs) {
         return this.formatPrompt(kwargs).convertToString();
     }
 }

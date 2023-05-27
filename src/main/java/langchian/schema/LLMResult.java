@@ -3,16 +3,16 @@ package langchian.schema;
 import java.util.List;
 import java.util.Map;
 
-public class LLMResult {
+public class LLMResult<T extends Generation> {
 
-    private List<List<Generation>> generations = null;
+    private List<List<T>> generations = null;
     private Map<String, Object> llmOutput = null;
 
-    public List<List<Generation>> getGenerations() {
+    public List<List<T>> getGenerations() {
         return generations;
     }
 
-    public void setGenerations(List<List<Generation>> generations) {
+    public void setGenerations(List<List<T>> generations) {
         this.generations = generations;
     }
 
