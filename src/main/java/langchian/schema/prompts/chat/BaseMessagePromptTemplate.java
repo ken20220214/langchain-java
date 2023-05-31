@@ -10,7 +10,7 @@ public abstract class BaseMessagePromptTemplate implements BaseMessageProvider {
 
     private List<String> inputVariables = null;
 
-    public abstract List<BaseMessage> formatMessages(Map<String, Object> kwargs);
+    protected abstract List<BaseMessage> formatMessages(Map<String, Object> kwargs);
 
     @Override
     public List<BaseMessage> provideMessages(Map<String, Object> kwargs) {

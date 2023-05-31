@@ -4,7 +4,6 @@ public class ChatGeneration extends Generation {
 
     private BaseMessage message;
 
-
     public BaseMessage getMessage() {
         return message;
     }

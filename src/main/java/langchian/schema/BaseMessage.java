@@ -54,4 +54,8 @@ public abstract class BaseMessage implements BaseMessageProvider, StringConverte
         sb.append(this.type).append(": ").append(this.content).append("\n");
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        String.format("");
+    }
 }
