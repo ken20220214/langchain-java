@@ -1,12 +1,16 @@
 package langchian.schema;
 
-import java.util.Map;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
-public class SystemMessage extends BaseMessage{
+@Data
+@SuperBuilder
+public class SystemMessage extends BaseMessage {
 
     private static final String TYPE = "system";
 
-    public SystemMessage(String content, Map<String, String> additionalKwargs) {
-        super(content, TYPE, additionalKwargs);
+    @Override
+    public String getType() {
+        return TYPE;
     }
 }

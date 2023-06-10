@@ -2,7 +2,10 @@ package langchian.schema;
 
 import java.util.List;
 
-public interface PromptValue extends StringConverter {
+public interface PromptValue {
 
-    public List<BaseMessage> convertToMessages();
+    public String toPromptString();
+
+    public List<BaseMessage> toMessages();
+
 }

@@ -1,25 +1,15 @@
 package langchian.schema;
 
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
 import java.util.Map;
 
+@Data
+@SuperBuilder
 public class Generation {
 
-    private String txt;
+    private String text;
     private Map<String, Object> generationInfo;
 
-    public String getTxt() {
-        return txt;
-    }
-
-    public void setTxt(String txt) {
-        this.txt = txt;
-    }
-
-    public Map<String, Object> getGenerationInfo() {
-        return generationInfo;
-    }
-
-    public void setGenerationInfo(Map<String, Object> generationInfo) {
-        this.generationInfo = generationInfo;
-    }
 }

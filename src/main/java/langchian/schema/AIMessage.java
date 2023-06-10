@@ -1,22 +1,17 @@
 package langchian.schema;
 
-import java.util.Map;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
+@Data
+@SuperBuilder
 public class AIMessage extends BaseMessage {
 
     private static final String TYPE = "ai";
-
     private boolean example = false;
 
-    public AIMessage(String content, Map<String, String> additionalKwargs) {
-        super(content, TYPE, additionalKwargs);
-    }
-
-    public boolean isExample() {
-        return example;
-    }
-
-    public void setExample(boolean example) {
-        this.example = example;
+    @Override
+    public String getType() {
+        return TYPE;
     }
 }

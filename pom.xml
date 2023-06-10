@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>langchain-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.193</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -14,10 +14,20 @@
         <guava.version>31.1-jre</guava.version>
         <fastjson.version>2.0.32</fastjson.version>
         <slf4j.version>2.0.6</slf4j.version>
+        <commons.lang.version>3.7</commons.lang.version>
+        <junit.version>4.13-rc-2</junit.version>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>
@@ -37,6 +47,20 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
 
 

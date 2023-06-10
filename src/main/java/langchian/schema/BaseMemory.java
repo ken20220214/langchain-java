@@ -1,8 +1,11 @@
 package langchian.schema;
 
+import lombok.Data;
+
 import java.util.List;
 import java.util.Map;
 
+@Data
 public abstract class BaseMemory {
 
     private List<String> memoryVariables;
@@ -12,5 +15,4 @@ public abstract class BaseMemory {
     public abstract void saveContext(Map<String, Object> inputs, Map<String, Object> outputs);
 
     public abstract void clear();
-
 }

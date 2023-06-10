@@ -1,22 +1,17 @@
 package langchian.schema;
 
-import java.util.Map;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
+@Data
+@SuperBuilder
 public class HumanMessage extends BaseMessage{
 
     private static final String TYPE = "human";
+    private boolean example = false;
 
-    private boolean exmpale = false;
-
-    public HumanMessage(String content, Map<String, String> additionalKwargs) {
-        super(content, TYPE, additionalKwargs);
-    }
-
-    public boolean isExmpale() {
-        return exmpale;
-    }
-
-    public void setExmpale(boolean exmpale) {
-        this.exmpale = exmpale;
+    @Override
+    public String getType() {
+        return TYPE;
     }
 }
