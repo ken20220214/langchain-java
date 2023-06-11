@@ -32,7 +32,7 @@ public abstract class Agent extends BaseActionAgent {
         return Lists.newArrayList(getParser().parse(ret));
     }
 
-    private static final String SCRATCH_PAD_KEY = "agent_scratchpad";
+    public static final String SCRATCH_PAD_KEY = "agent_scratchpad";
     private static final String STOP_KEY = "stop";
 
     private Map<String, Object> getFullInputs(
