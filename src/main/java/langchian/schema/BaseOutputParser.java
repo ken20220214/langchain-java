@@ -1,6 +1,6 @@
 package langchian.schema;
 
-public abstract class BaseOutputParser<T> {
+public abstract interface BaseOutputParser<T> {
 
     /**
      * Parse the output of an LLM call.

@@ -3,6 +3,7 @@ package langchian.chains.llm;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import langchian.baselanguage.BaseLanguageModel;
+import langchian.callbacks.base.BaseCallbackManager;
 import langchian.chains.base.Chain;
 import langchian.prompts.prompt.PromptTemplate;
 import langchian.schema.Generation;
@@ -115,6 +116,10 @@ public class LLMChain extends Chain {
         }
 
         return ret;
+    }
+
+    public String predict(Map<String, Object> inputs) throws IOException {
+        return this.__call__(inputs, false).get(this.getOutputKeys().get(0)).toString();
     }
 
 }

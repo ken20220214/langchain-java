@@ -65,7 +65,7 @@ public abstract class Chain {
 
     protected abstract Map<String, Object> _call(Map<String, Object> inputs) throws IOException;
 
-    public Map<String, Object> call(Map<String, Object> inputs, boolean returnOnlyOutputs) throws IOException {
+    public Map<String, Object> __call__(Map<String, Object> inputs, boolean returnOnlyOutputs) throws IOException {
 
         Map<String, Object> _inputs = prepInputs(inputs);
         if (manager != null) {
