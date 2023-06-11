@@ -5,10 +5,14 @@ import com.google.common.collect.Maps;
 import langchian.baselanguage.BaseLanguageModel;
 import langchian.callbacks.base.BaseCallbackManager;
 import langchian.schema.*;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.io.IOException;
 import java.util.List;
 
+@Data
+@SuperBuilder
 public abstract class BaseChatModel extends BaseLanguageModel<ChatGeneration> {
 
     protected abstract ChatResult _generate(List<BaseMessage> messages, List<String> stops,

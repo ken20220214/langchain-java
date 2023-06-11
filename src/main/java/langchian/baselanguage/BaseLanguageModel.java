@@ -5,10 +5,14 @@ import langchian.schema.BaseMessage;
 import langchian.schema.Generation;
 import langchian.schema.LLMResult;
 import langchian.schema.PromptValue;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.io.IOException;
 import java.util.List;
 
+@Data
+@SuperBuilder
 public abstract class BaseLanguageModel<T extends Generation> {
 
     public abstract LLMResult<T> generatePrompt(
