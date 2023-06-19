@@ -10,7 +10,7 @@ public class SystemMessage extends BaseMessage {
     private static final String TYPE = "system";
 
     @Override
-    public String getType() {
+    public String getRole() {
         return TYPE;
     }
 }

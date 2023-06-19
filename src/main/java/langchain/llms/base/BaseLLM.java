@@ -77,7 +77,7 @@ public abstract class BaseLLM<T extends Generation>  extends BaseLanguageModel<T
 
         StringBuilder sb = new StringBuilder();
         messages.stream().forEach( x -> {
-            sb.append(x.getType()).append(":").append(x.getContent()).append("\n");
+            sb.append(x.getRole()).append(":").append(x.getContent()).append("\n");
         });
         String msg = this.__call__(sb.toString(), stops, manager, verbose);
         AIMessage message = AIMessage.builder().content(msg).build();

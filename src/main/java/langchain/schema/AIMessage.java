@@ -7,11 +7,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class AIMessage extends BaseMessage {
 
-    private static final String TYPE = "ai";
+    private static final String TYPE = "assistant";
     private boolean example = false;
 
     @Override
-    public String getType() {
+    public String getRole() {
         return TYPE;
     }
 }

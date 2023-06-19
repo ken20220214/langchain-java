@@ -7,11 +7,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class HumanMessage extends BaseMessage{
 
-    private static final String TYPE = "human";
+    private static final String TYPE = "user";
     private boolean example = false;
 
     @Override
-    public String getType() {
+    public String getRole() {
         return TYPE;
     }
 }

@@ -10,6 +10,6 @@ import java.util.Map;
 public class BaseMessage {
 
     protected String content;
-    protected String type;
+    protected String role;
     protected Map<String, Object> additionalKwargs;
 }
